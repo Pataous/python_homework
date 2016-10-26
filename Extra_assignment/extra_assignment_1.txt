@@ -1,0 +1,61 @@
+#### Exercise 1
+
+Consider the following sequence of expressions:
+
+weather = { 'a': ['stormy'], 'b': ['sunny'], 'c': ['rainy']}
+
+weather['d'] = ['snowy']
+weather['d'].append('windy')
+weather['d'].append('cloudy')
+
+Write a function, called "biggest" which returns the key corresponding to the entry with the longest list attached to it. If there is more than one such entry, return all of the matching keys.
+
+Example usage:
+
+>>> biggest(weather)
+'d'
+
+If there are no values in the dictionary, "biggest" should return None.
+
+#### Exercise 2
+Consider the following code:
+
+#############################
+class IntSet(object):
+    """An IntSet is a set of integers
+    The value is represented by a list of integers stored in self.vals
+    Each integer in the list must occur in self.vals exactly once."""
+
+    def __init__(self, list_of_ints):
+        """Create a set of integers"""
+        self.vals = list(list_of_ints)
+        #TODO
+
+    def insert(self, x):
+        """Assumes x is an integer and inserts x into the list"""
+        self.vals.append(x)
+        #TODO
+
+    def member(self, x):
+        """Assumes x is an integer
+           Returns True if x is in self.vals, and False otherwise"""
+        return x in self.vals
+
+    def __str__(self):
+        """Returns a string representation of self"""
+        self.vals.sort()
+        return '{' + ','.join([str(x) for x in self.vals]) + '}'
+
+##############################
+
+Your task is to define the following methods for the IntSet class:
+
+1. Finish the implementation of the "__init__" method, so values that are twice or more in the list are not inserted more than once.
+
+2. Finish the implementation of the "insert" method, so values that are already in the list are not inserted again.
+
+3. Modify the insert method, so that it checks the input it receives, and complains (=raises an Exception) if the "x" argument it receives is in fact not an integer.
+
+4. Define an "intersect" method that takes an other IntSet as only parameter and returns a new IntSet representing the overlap between the two (containing only the elements that appear in the two IntSet objects). Make sure to return an empty set if s1 and s2 have no elements in common.
+
+5. Add the appropriate method "__len__", so that the object returns the number of elements in self.
