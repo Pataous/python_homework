@@ -91,14 +91,20 @@ class FastaParser(object):
 
 	def length_dist(self, output):
 		'''Creates a graph of the length distribution of the sequences and saves it in pdf format in the specified path'''
-		
+		home = os.path.expanduser("~")
+		complete_path = os.path.join(home,output)
 		plt.bar(range(len(self.seq)), self.seq_len, align = 'center')
-		plt.xticks(range(len(self.seq_names)), self.seq_names)
+		plt.xticks(range(len(self.seq_names)+1), self.seq_names)
 		plt.xlabel('Sequence in the file')
-        plt.ylabel('Length of the sequence')
-        plt.title('Length distribution of the sequences')
-        plt.show()
-        plt.savefig(output)
+		plt.ylabel('Length of the sequence')
+		plt.title('Length distribution of the sequences')
+
+		#save in the specified folder. I had to remove the '~' in the exercise_day5 file because I could not handle it in windows...
+
+		if not os.path.exists(os.path.dirname(complete_path)):
+			os.makedirs(os.path.dirname(complete_path))
+		plt.savefig(complete_path)
+		plt.show()
 
 		
 		

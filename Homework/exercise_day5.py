@@ -96,7 +96,7 @@ assert contigs.extract_length(2) == []
 # the path at which a PDF file containing a graph of the length
 # distribution of the sequences should be created. Use any plotting
 # library such as matplotlib or ggplot.
-genes.length_dist("~/test/genes_lengths.pdf")
+genes.length_dist("/test/genes_lengths.pdf")
 
 # Step 12: Document your code. Each method should have a docstring
 # that would enable someone to quickly understand your code.
