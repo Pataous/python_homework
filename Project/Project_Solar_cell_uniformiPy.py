@@ -347,7 +347,7 @@ class Full_size_cell:
 	def sum_plot(self):
 		'''Plot the distribution of all four parameters using contouf function'''
 
-		plt.figure(1)
+		plt.figure()
 
 		plt.subplot(221)
 		self.plot_Voc_map()
@@ -373,6 +373,8 @@ class Full_size_cell:
 F1 = Full_size_cell('C:\Users\Patrice.Bras\Github\python_homework\Project\uniformity_U1140712\\raw')
 
 #Test _ see if sum_plot has the expected output 
+F1.plot_Voc_map()
+
 F1.sum_plot()
 
 #Go back to the project directory
